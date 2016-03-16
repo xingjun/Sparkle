@@ -184,7 +184,7 @@
         [self.installButton setTitle:SULocalizedString(@"Learn More...", @"Alternate title for 'Install Update' button when there's no download in RSS feed.")];
         [self.installButton setAction:@selector(openInfoURL:)];
     }
-
+    
     if (showReleaseNotes) {
         [self displayReleaseNotes];
     } else {
@@ -204,7 +204,7 @@
         
         [self.automaticallyInstallUpdatesButton removeFromSuperview];
     }
-
+    self.automaticallyInstallUpdatesButton.hidden = YES;
     [self.window center];
 }
 
@@ -240,9 +240,9 @@
     NSString *finalString = nil;
 
     if (self.updateItem.isInformationOnlyUpdate) {
-        finalString = [NSString stringWithFormat:SULocalizedString(@"%@ %@ is now available--you have %@. Would you like to learn more about this update on the web?", @"Description text for SUUpdateAlert when the update informational with no download."), self.host.name, updateItemVersion, hostVersion];
+        finalString = [NSString stringWithFormat:SULocalizedString(@"You have %@. Would you like to download it now?", @"Description text for SUUpdateAlert when the update informational with no download."),  hostVersion];
     } else {
-        finalString = [NSString stringWithFormat:SULocalizedString(@"%@ %@ is now available--you have %@. Would you like to download it now?", @"Description text for SUUpdateAlert when the update is downloadable."), self.host.name, updateItemVersion, hostVersion];
+        finalString = [NSString stringWithFormat:SULocalizedString(@"You have %@. Would you like to download it now?", @"Description text for SUUpdateAlert when the update informational with no download."),  hostVersion];
     }
     return finalString;
 }

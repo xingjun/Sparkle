@@ -179,7 +179,9 @@ static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaults
     if (!hasLaunchedBefore) {
         [self.host setBool:YES forUserDefaultsKey:SUHasLaunchedBeforeKey];
     }
+    shouldPrompt = NO;
 
+    [self updatePermissionPromptFinishedWithResult: SUAutomaticallyCheck ];
     if (shouldPrompt) {
         NSArray *profileInfo = [self.host systemProfile];
         // Always say we're sending the system profile here so that the delegate displays the parameters it would send.
@@ -463,7 +465,7 @@ static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaults
 {
     if (![NSThread isMainThread])
         [NSException raise:@"SUThreadException" format:@"This method must be called on the main thread"];
-
+    NSLog(@"SetFeedURL%@",feedURL);
     [self.host setObject:[feedURL absoluteString] forUserDefaultsKey:SUFeedURLKey];
 }
 
@@ -471,15 +473,20 @@ static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaults
 {
     if (![NSThread isMainThread])
         [NSException raise:@"SUThreadException" format:@"This method must be called on the main thread"];
-
     // A value in the user defaults overrides one in the Info.plist (so preferences panels can be created wherein users choose between beta / release feeds).
     NSString *appcastString = [self.host objectForKey:SUFeedURLKey];
-    if ([self.delegate respondsToSelector:@selector(feedURLStringForUpdater:)])
+    NSLog(@"__111%@",appcastString);
+    if ([self.delegate respondsToSelector:@selector(feedURLStringForUpdater:)]) {
         appcastString = [self.delegate feedURLStringForUpdater:self];
+        NSLog(@"__222%@",appcastString);
+ 
+    }
     if (!appcastString) // Can't find an appcast string!
         [NSException raise:@"SUNoFeedURL" format:@"You must specify the URL of the appcast as the %@ key in either the Info.plist or the user defaults!", SUFeedURLKey];
     NSCharacterSet *quoteSet = [NSCharacterSet characterSetWithCharactersInString:@"\"\'"]; // Some feed publishers add quotes; strip 'em.
     NSString *castUrlStr = [appcastString stringByTrimmingCharactersInSet:quoteSet];
+    
+    NSLog(@"_castURL_%@",castUrlStr);
     if (!castUrlStr || [castUrlStr length] == 0)
         return nil;
     else

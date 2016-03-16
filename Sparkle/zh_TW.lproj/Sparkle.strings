@@ -6,6 +6,7 @@
 
 /* Description text for SUUpdateAlert when the update is downloadable. */
 "%@ %@ is now available--you have %@. Would you like to download it now?" = "%1$@ %2$@ 現在已可取得，您的版本則是 %3$@。您要現在下載嗎？";
+"You have %@. Would you like to download it now?" = "您现在的版本是 %1$@。要现在下载吗？";
 
 /* Description text for SUUpdateAlert when the update informational with no download. */
 "%@ %@ is now available--you have %@. Would you like to learn more about this update on the web?" = "%1$@ %2$@ is now available--you have %3$@. Would you like to learn more about this update on the web?";
