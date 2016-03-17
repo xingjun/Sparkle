@@ -70,7 +70,7 @@
     self = [super init];
     if (self) {
         id enclosure = dict[SURSSElementEnclosure];
-        NSLog(@"enclosure-%@",enclosure);
+
         // Try to find a version string.
         // Finding the new version number from the RSS feed is a little bit hacky. There are two ways:
         // 1. A "sparkle:version" attribute on the enclosure tag, an extension from the RSS spec.
