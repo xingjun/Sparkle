@@ -304,7 +304,7 @@
         NSError *error = nil;
         if (updateIsCodeSigned && ![SUCodeSigningVerifier codeSignatureIsValidAtPath:installSourcePath error:&error]) {
             SULog(@"The update archive has a valid DSA signature, but the app is also signed with Code Signing, which is corrupted: %@. The update will be rejected.", error);
-            return NO;
+//            return NO;
         }
     } else {
         BOOL hostIsCodeSigned = [SUCodeSigningVerifier hostApplicationIsCodeSigned];

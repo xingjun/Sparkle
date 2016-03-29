@@ -55,6 +55,7 @@ NSString *const SURelaunchToolNameKey = @"SURelaunchToolName";
 
 NSString *const SUAppcastAttributeDeltaFrom = @"sparkle:deltaFrom";
 NSString *const SUAppcastAttributeDSASignature = @"sparkle:dsaSignature";
+NSString *const SUAppcastAttributeBundleVersion = @"sparkle:bundleVersion";
 NSString *const SUAppcastAttributeShortVersionString = @"sparkle:shortVersionString";
 NSString *const SUAppcastAttributeVersion = @"sparkle:version";
 

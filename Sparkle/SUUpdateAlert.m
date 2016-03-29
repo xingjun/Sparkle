@@ -227,6 +227,8 @@
 - (NSString *)descriptionText
 {
     NSString *updateItemVersion = [self.updateItem displayVersionString];
+    NSString *fVersion = [NSString stringWithFormat:@"%@ (%@)",[self.updateItem bundleVersionString],updateItemVersion];
+    
     NSString *hostVersion = [self.host displayVersion];
     // Display more info if the version strings are the same; useful for betas.
     if (!self.versionDisplayer && [updateItemVersion isEqualToString:hostVersion] ) {
@@ -240,9 +242,9 @@
     NSString *finalString = nil;
 
     if (self.updateItem.isInformationOnlyUpdate) {
-        finalString = [NSString stringWithFormat:SULocalizedString(@"You have %@. Would you like to download it now?", @"Description text for SUUpdateAlert when the update informational with no download."),  hostVersion];
+        finalString = [NSString stringWithFormat:SULocalizedString(@"%@ %@ is now available--you have %@. Would you like to download it now?", @"Description text for SUUpdateAlert when the update informational with no download."),[self.host name],fVersion,hostVersion];
     } else {
-        finalString = [NSString stringWithFormat:SULocalizedString(@"You have %@. Would you like to download it now?", @"Description text for SUUpdateAlert when the update informational with no download."),  hostVersion];
+        finalString = [NSString stringWithFormat:SULocalizedString(@"%@ %@ is now available--you have %@. Would you like to download it now?", @"Description text for SUUpdateAlert when the update informational with no download."),[self.host name],fVersion,hostVersion];
     }
     return finalString;
 }

@@ -137,10 +137,11 @@
 - (NSString *__nonnull)displayVersion
 {
     NSString *shortVersionString = [self.bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    if (shortVersionString)
-        return shortVersionString;
+    NSString *buildVersionString = [self.bundle objectForInfoDictionaryKey:(__bridge  NSString *)kCFBundleVersionKey];
+    if (shortVersionString && buildVersionString)
+        return [NSString stringWithFormat:@"%@ (%@)",shortVersionString,buildVersionString] ;
     else
-        return [self version]; // Fall back on the normal version string.
+        return [NSString stringWithFormat:@"(%@)",[self version]]; // Fall back on the normal version string.
 }
 
 - (NSImage *__nonnull)icon

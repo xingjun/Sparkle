@@ -24,6 +24,7 @@
 @property (copy, readwrite) NSString *maximumSystemVersion;
 @property (strong, readwrite) NSURL *fileURL;
 @property (copy, readwrite) NSString *versionString;
+
 @property (copy, readwrite) NSString *displayVersionString;
 @property (copy, readwrite) NSDictionary *deltaUpdates;
 @property (strong, readwrite) NSURL *infoURL;
@@ -31,6 +32,7 @@
 @end
 
 @implementation SUAppcastItem
+@synthesize bundleVersionString;
 @synthesize dateString;
 @synthesize deltaUpdates;
 @synthesize displayVersionString;
@@ -80,8 +82,11 @@
         //    The big caveat with this is that you can't have underscores in your version strings, as that'll confuse Sparkle.
         //    Feel free to change the separator string to a hyphen or something more suited to your needs if you like.
         NSString *newVersion = enclosure[SUAppcastAttributeVersion];
+        NSString *newBundleVersion = enclosure[SUAppcastAttributeBundleVersion];
         if (newVersion == nil) {
-            newVersion = dict[SUAppcastAttributeVersion]; // Get version from the item, in case it's a download-less item (i.e. paid upgrade).
+            newVersion = dict[SUAppcastAttributeVersion];
+            newBundleVersion = dict[SUAppcastAttributeBundleVersion];
+            // Get version from the item, in case it's a download-less item (i.e. paid upgrade).
         }
         if (newVersion == nil) // no sparkle:version attribute anywhere?
         {
@@ -141,7 +146,8 @@
         if (enclosure) {
             self.DSASignature = enclosure[SUAppcastAttributeDSASignature];
         }
-
+        
+        self.bundleVersionString = newBundleVersion;
         self.versionString = newVersion;
         self.minimumSystemVersion = dict[SUAppcastElementMinimumSystemVersion];
         self.maximumSystemVersion = dict[SUAppcastElementMaximumSystemVersion];
