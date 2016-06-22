@@ -1,12 +1,12 @@
-# Sparkle [![Build Status](https://travis-ci.org/sparkle-project/Sparkle.svg?branch=master)](https://travis-ci.org/sparkle-project/Sparkle) [![Coverage Status](https://coveralls.io/repos/sparkle-project/Sparkle/badge.svg?branch=master&service=github)](https://coveralls.io/github/sparkle-project/Sparkle?branch=master) <a href="https://www.bandwidthhog.com/?utm_source=sparkle-github&amp;utm_medium=badge&amp;utm_campaign=readme"><img src="https://img.shields.io/badge/sponsored%20by-Bandwidth%20Hog-orange.svg" alt="sponsored by: bandwidth hog"></a>
+# Sparkle [![Build Status](https://travis-ci.org/sparkle-project/Sparkle.svg?branch=master)](https://travis-ci.org/sparkle-project/Sparkle) [![Coverage Status](https://coveralls.io/repos/sparkle-project/Sparkle/badge.svg?branch=master&service=github)](https://coveralls.io/github/sparkle-project/Sparkle?branch=master) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CocoaPods](https://img.shields.io/cocoapods/v/Sparkle.svg?maxAge=2592000)]() <a href="https://www.maxcdn.com/?utm_source=sparkle-github&amp;utm_medium=badge&amp;utm_campaign=readme"><img src="https://img.shields.io/badge/sponsored%20by-MaxCDN-orange.svg" alt="sponsored by: MaxCDN"></a>
 
 An easy-to-use software update framework for Cocoa developers.
 
-<img src="Resources/Screenshot.png" width="715" alt="Sparkle shows familiar update window with release notes">
+<img src="Resources/Screenshot.png" width="732" alt="Sparkle shows familiar update window with release notes">
 
 ## Changes since 1.5b
 
-* Up-to-date with 10.11 SDK and Xcode 7. Supports OS X 10.7+.
+* Up-to-date with 10.11 SDK and Xcode 7. Supports macOS 10.7+.
 * Cleaned up and modernized code, using ARC and Autolayout.
 * Merged bugfixes, security fixes and some features from multiple Sparkle forks.
 * Truly automatic background updates (no UI at all) when user agreed to "Automatically download and install updates in the future."
@@ -33,7 +33,7 @@ An easy-to-use software update framework for Cocoa developers.
 
 ## Requirements
 
-* Runtime: OS X 10.7 or greater
+* Runtime: macOS 10.7 or greater
 * Build: Xcode 5 and 10.8 SDK or greater
 * HTTPS server for serving updates (see [App Transport Security](http://sparkle-project.org/documentation/app-transport-security/))
 
@@ -50,5 +50,4 @@ Alternatively, build the Distribution scheme in the Xcode UI.
 
 ## Project Sponsor
 
-[Bandwidth Hog](https://www.bandwidthhog.com/?utm_source=sparkle-github&utm_medium=link&utm_campaign=readme-footer) is a service from MaxCDN
-that allows you to push software updates to your customers for only 1¢ a gigabyte. Best part is there are no contracts, it is all Pay-as-you-Go.
+[MaxCDN](https://www.maxcdn.com/?utm_source=sparkle-github&utm_medium=link&utm_campaign=readme-footer)
